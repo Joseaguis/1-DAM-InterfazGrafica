@@ -4,12 +4,10 @@ import application.model.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 
-public class SubirSueldoController {
+public class ModificarEmpleado {
 
     @FXML
     private Button btnAceptar;
@@ -18,30 +16,37 @@ public class SubirSueldoController {
     private Button btnCancelar;
 
     @FXML
-    private TextField txtPorcetajeSubida;
+    private TextField txtAnyoIngreso;
 
     @FXML
-    private TextField txtSueldoActual;
+    private TextField txtDNI;
+
+    @FXML
+    private TextField txtNombre;
+
+    @FXML
+    private TextField txtSueldo;
     
-    private Empleado e;
+    Empleado e;
 
     @FXML
     void btnAceptarOnAction(ActionEvent event) {
-    	double porcentaje = 0;
     	try {
-			porcentaje = Double.parseDouble(txtPorcetajeSubida.getText());
-			e.incrementarSueldo(porcentaje);
+			e.setDni(txtDNI.getText());
+			e.setNombre(txtNombre.getText());
+			e.setAnyo(Integer.parseInt(txtAnyoIngreso.getText()));
+			e.setSueldo(Double.parseDouble(txtSueldo.getText()));
+    		
 	    	Node nodo = (Node) event.getSource();
 	    	nodo.getScene().getWindow().hide();
 		} catch (NumberFormatException e) {
-			
+			System.out.println("Error");
 		}
-    	
     }
 
     @FXML
     void btnCancelarOnAction(ActionEvent event) {
-    	
+
     }
 
     public void setEmpleado(Empleado e) {
@@ -54,6 +59,10 @@ public class SubirSueldoController {
     }
     
     private void actualizarFormulario() {
-    	txtSueldoActual.setText(String.format("%.2f €",e.getSueldo()));
+    	txtDNI.setText(e.getDni());
+    	txtNombre.setText(e.getNombre());
+    	txtAnyoIngreso.setText(String.valueOf(e.getAnyo()));
+    	txtSueldo.setText(String.format("%.2f €", e.getSueldo()));
+    	
     }
 }

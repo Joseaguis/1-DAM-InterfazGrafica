@@ -1,16 +1,23 @@
 package application.controller;
 
+import java.io.IOException;
 import java.net.URL;
+import java.rmi.server.LoaderHandler;
 import java.util.ResourceBundle;
 
 import application.model.Empleado;
 import application.model.Empresa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class EmpresaController implements Initializable {
 
@@ -49,6 +56,9 @@ public class EmpresaController implements Initializable {
     
     @FXML
     private Label txtNumEmpleados;
+    
+    @FXML
+    private Button btnModificarDatos;
 
     @FXML
     void btnAnteriorOnAction(ActionEvent event) {
@@ -85,9 +95,52 @@ public class EmpresaController implements Initializable {
     
     @FXML
     void btnSubirSueldoOnAction(ActionEvent event) {
-
+    	try {
+    		Stage escenario = new Stage();
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/subirSueldo.fxml"));
+    		Parent root = loader.load();
+    		
+        	Scene escena = new Scene(root);
+        	escenario.setScene(escena);
+        	escenario.initModality(Modality.APPLICATION_MODAL);
+        	
+        	// Inicializar el empleado del controlador de SubirSueldo
+        	SubirSueldoController controlador = loader.getController();
+        	controlador.setEmpleado(e.getPlantilla().get(posActual));
+        	
+        	escenario.showAndWait();
+        	
+        	actualizarFormulario();
+        	
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	
     }
     
+    @FXML
+    void btnModificarDatosOnAction(ActionEvent event) {
+    	try {
+    		Stage escenario = new Stage();
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/modificarEmpleado.fxml"));
+    		Parent root = loader.load();
+    		
+        	Scene escena = new Scene(root);
+        	escenario.setScene(escena);
+        	escenario.initModality(Modality.APPLICATION_MODAL);
+        	
+        	// Inicializar el empleado del controlador de SubirSueldo
+        	ModificarEmpleado controlador = loader.getController();
+        	controlador.setEmpleado(e.getPlantilla().get(posActual));
+        	
+        	escenario.showAndWait();
+        	
+        	actualizarFormulario();
+        	
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
