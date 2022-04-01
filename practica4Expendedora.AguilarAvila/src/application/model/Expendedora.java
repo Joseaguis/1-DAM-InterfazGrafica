@@ -10,6 +10,20 @@ public class Expendedora {
 	private double[] precioProductos;
 	private int[] stockProductos;
 	
+	public Expendedora (double cambioDisponible, String[] nombreProductos, double[] precioProducto, int[] stockProducto) {
+		// Comprobar si los 3 arrays son iguales
+		if (nombreProductos.length != precioProducto.length || nombreProductos.length != stockProducto.length ) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.credito = 0;
+		this.importeVentas = 0;
+		this.cambioDisponible = cambioDisponible;
+		this.nombreProductos = nombreProductos;
+		this.precioProductos = precioProducto;
+		this.stockProductos = stockProducto;
+	}
+	
 	public String toString() {
 		String texto = String.format(
 				  "Credito			: %6.2f euros"
@@ -23,6 +37,12 @@ public class Expendedora {
 					this.nombreProductos[i],this.precioProductos[i],this.stockProductos[i]);
 		}
 		return texto;
+	}
+	
+	public void anayadirDinero(double importe) {
+		if (this.credito + importe > ) {
+			
+		}
 	}
 	
 	public double getCredito() {
