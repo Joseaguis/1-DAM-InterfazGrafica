@@ -6,9 +6,10 @@ public class CambioInsuficienteException extends Exception {
 		super();
 		
 	}
-	
+
 	public CambioInsuficienteException(String mensaje) {
 		super(mensaje);
 		
 	}
+
 }

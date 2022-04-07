@@ -1,0 +1,10 @@
+#Scene{
+    -fx-background-image: url(../images/maquina.jpg);
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto;
+}
+
+#Controles{
+    -fx-background-color:rgb(132, 145, 77);
+}
+
