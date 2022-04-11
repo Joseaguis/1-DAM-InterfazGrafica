@@ -1,0 +1,26 @@
+#Scene{
+    -fx-background-image: url(../../assets/imagenes/Expendedora.png);
+    -fx-background-repeat: no-repeat;
+}
+
+#Controles{
+    -fx-background-image: url(../../assets/imagenes/Derecha.png);
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+#Salida{
+    -fx-background-image: url(../../assets/imagenes/Salida.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left center;
+}
+
+#btn{
+    -fx-background-image: url(../../assets/imagenes/Latas/Fanta.png);
+}
+
+.hueco{
+    -fx-alignment: Center;
+    -fx-border-color: red;
+}
+
