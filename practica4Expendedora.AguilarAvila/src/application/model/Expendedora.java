@@ -56,7 +56,6 @@ public class Expendedora {
 	}
 	
 	public double comprar(int i) throws StockInsuficienteException, CreditoInsuficienteException, CambioInsuficienteException {
-		String producto = this.nombreProductos[i];
 		double precio = this.precioProductos[i];
 		
 		if (this.stockProductos[i] < 1) throw new StockInsuficienteException("Stock insuficiente");
@@ -100,4 +99,37 @@ public class Expendedora {
 	public int getStock(int i) {
 		return this.stockProductos[i];
 	}
+
+	public String[] getNombreProductos() {
+		return nombreProductos;
+	}
+
+	public void setNombreProductos(String[] nombreProductos) {
+		this.nombreProductos = nombreProductos;
+	}
+
+	public void setPrecioProductos(double[] precioProductos) {
+		this.precioProductos = precioProductos;
+	}
+
+	public int[] getStockProductos() {
+		return stockProductos;
+	}
+
+	public void setStockProductos(int[] stockProductos) {
+		this.stockProductos = stockProductos;
+	}
+
+	public void setCredito(double credito) {
+		this.credito = credito;
+	}
+
+	public void setCambioDisponible(double cambioDisponible) {
+		this.cambioDisponible = cambioDisponible;
+	}
+
+	public void setImporteVentas(double importeVentas) {
+		this.importeVentas = importeVentas;
+	}
+	
 }

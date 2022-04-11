@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -12,79 +14,203 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane id="Scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" stylesheets="@style/expendedora.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="Scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="896.0" prefWidth="600.0" stylesheets="@style/expendedora.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ExpendedoraController">
    <right>
-      <VBox id="Controles" alignment="TOP_CENTER" prefHeight="450.0" prefWidth="175.0" BorderPane.alignment="CENTER">
+      <VBox id="Controles" alignment="TOP_CENTER" prefHeight="554.0" prefWidth="141.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="25.0" left="15.0" right="15.0" top="50.0" />
+         </padding>
          <children>
-            <VBox alignment="CENTER" prefHeight="36.0" prefWidth="175.0">
+            <HBox alignment="CENTER" prefHeight="46.0" prefWidth="101.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="16.0" prefWidth="174.0" text="Credito">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
+                  <Label text="Credito">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
                   </Label>
-                  <TextField editable="false" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="25.0" top="25.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="33.0" prefWidth="175.0">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="175.0" text="Cambio Restante" />
-                  <TextField editable="false" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="25.0" top="25.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="7.0" prefWidth="175.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="16.0" prefWidth="173.0" text="Ventas Totales" />
-                  <TextField editable="false" prefHeight="24.0" prefWidth="153.0" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="25.0" top="25.0" />
-               </VBox.margin>
-            </VBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="87.0" text=" Devolver Cambio" textAlignment="CENTER" wrapText="true" />
+                  <TextField fx:id="txtCredito" editable="false" prefHeight="25.0" prefWidth="62.0" />
                </children>
             </HBox>
+            <HBox alignment="CENTER" layoutX="35.0" layoutY="35.0" prefHeight="46.0" prefWidth="101.0">
+               <children>
+                  <Label text="Venta. T">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtVenta" editable="false" prefHeight="25.0" prefWidth="60.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="46.0" prefWidth="101.0">
+               <children>
+                  <Label text="Cambio T">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtCambio" editable="false" prefHeight="25.0" prefWidth="54.0" />
+               </children>
+            </HBox>
+            <GridPane alignment="CENTER" hgap="5.0" minHeight="-Infinity" vgap="5.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <children>
+                  <Button fx:id="btnDinero00" alignment="CENTER" mnemonicParsing="false" onAction="#btnDinero00OnAction" prefHeight="25.0" prefWidth="65.0" text="2 €" />
+                  <Button fx:id="btnDinero10" mnemonicParsing="false" onAction="#btnDinero10OnAction" prefHeight="25.0" prefWidth="133.0" text="1 €" GridPane.columnIndex="1" />
+                  <Button fx:id="btnDinero01" mnemonicParsing="false" onAction="#btnDinero01OnAction" prefHeight="25.0" prefWidth="91.0" text="0,50 €" GridPane.rowIndex="1" />
+                  <Button fx:id="btnDinero11" mnemonicParsing="false" onAction="#btnDinero11OnAction" prefHeight="25.0" prefWidth="100.0" text="0,20 €" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="btnDinero02" mnemonicParsing="false" onAction="#btnDinero02OnAction" prefHeight="25.0" prefWidth="114.0" text="0.10 €" GridPane.rowIndex="2" />
+                  <Button fx:id="btnDinero12" mnemonicParsing="false" onAction="#btnDinero12OnAction" prefHeight="25.0" prefWidth="109.0" text="0,05 €" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <Button fx:id="btnDevolver" mnemonicParsing="false" onAction="#btnDevolverOnAction" prefHeight="25.0" prefWidth="140.0" text="Devolver Cambio">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
          </children></VBox>
    </right>
    <top>
-      <Pane id="Caratula_Superior" prefHeight="102.0" prefWidth="541.0" BorderPane.alignment="CENTER" />
+      <Pane id="Caratula_Superior" prefHeight="130.0" prefWidth="560.0" BorderPane.alignment="CENTER" />
    </top>
-   <bottom>
-      <Pane id="Caratula_Inferior" prefHeight="94.0" prefWidth="541.0" BorderPane.alignment="CENTER" />
-   </bottom>
-   <center>
-      <GridPane id="Contenido_expendedora" prefHeight="54.0" prefWidth="500.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-         </children>
-      </GridPane>
-   </center>
    <GridPane.margin>
       <Insets />
    </GridPane.margin>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
+   <bottom>
+      <HBox id="Salida" prefHeight="114.0" prefWidth="540.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <center>
+      <GridPane hgap="5.0" vgap="5.0" BorderPane.alignment="BOTTOM_CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" styleClass="hueco">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/imagenes/Latas/COLA.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="btn" fx:id="btn00" alignment="CENTER" mnemonicParsing="false" onAction="#btn00OnAction" prefHeight="26.0" prefWidth="207.0" text="Comprar" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="preicio00" editable="false" prefHeight="25.0" prefWidth="221.0" text="1 €" />
+                        <TextField fx:id="cantidad00" editable="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="224.0" prefWidth="139.0" styleClass="hueco" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/imagenes/Latas/Fanta%202.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="btn" fx:id="btn10" alignment="CENTER" mnemonicParsing="false" onAction="#btn10OnAction" prefHeight="26.0" prefWidth="207.0" text="Comprar" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="precio10" editable="false" prefHeight="25.0" prefWidth="221.0" text="1.10 €" />
+                        <TextField fx:id="cantidad10" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" styleClass="hueco" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/imagenes/Latas/Fanta.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="btn" fx:id="btn01" alignment="CENTER" mnemonicParsing="false" onAction="#btn01OnAction" prefHeight="26.0" prefWidth="207.0" text="Comprar" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="precio01" editable="false" prefHeight="25.0" prefWidth="221.0" text="0.90 €" />
+                        <TextField fx:id="cantidad01" editable="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" styleClass="hueco" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="158.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/imagenes/Latas/NESTEA.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="btn" fx:id="btn11" alignment="CENTER" mnemonicParsing="false" onAction="#btn11OnAction" prefHeight="26.0" prefWidth="207.0" text="Comprar" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="precio11" editable="false" prefHeight="25.0" prefWidth="221.0" text="0.95 €" />
+                        <TextField fx:id="cantidad11" editable="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" styleClass="hueco" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/imagenes/Latas/Aquarius.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="btn" fx:id="btn21" alignment="CENTER" mnemonicParsing="false" onAction="#btn21OnAction" prefHeight="26.0" prefWidth="207.0" text="Comprar" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="precio21" editable="false" prefHeight="25.0" prefWidth="221.0" text="1.05 €" />
+                        <TextField fx:id="cantidad21" editable="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" styleClass="hueco" GridPane.columnIndex="2">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/imagenes/Latas/PEPSI.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="btn" fx:id="btn20" alignment="CENTER" mnemonicParsing="false" onAction="#btn20OnAction" prefHeight="26.0" prefWidth="207.0" text="Comprar" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="precio20" editable="false" prefHeight="25.0" prefWidth="221.0" text="1.20 €" />
+                        <TextField fx:id="cantidad20" editable="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
 </BorderPane>
