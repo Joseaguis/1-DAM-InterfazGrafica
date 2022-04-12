@@ -170,7 +170,14 @@ public class ExpendedoraController implements Initializable {
     
     @FXML
     void btnDevolverOnAction(ActionEvent event) {
-    	e.devolverCredito();
+    	double devolucion = e.devolverCredito();
+    	if (devolucion != 0) {
+    		Alert a = new Alert(AlertType.INFORMATION);
+			a.setTitle("Cambio");
+			a.setHeaderText("Devolucion de cambio");
+			a.setContentText(String.format("Aqui tiene sus %.2f â‚¬", devolucion));
+			a.showAndWait();
+		}
     	actualizarFormulario();
     }
     
@@ -184,8 +191,14 @@ public class ExpendedoraController implements Initializable {
     }
     
     public void compra(int i) {
-    	 try {
- 	    	e.comprar(i);
+    	try {
+    		double devolucion = e.comprar(i);
+ 	    	
+ 	    	Alert a = new Alert(AlertType.INFORMATION);
+ 			a.setTitle("Cambio");
+ 			a.setHeaderText("Devolucion de cambio");
+ 			a.setContentText(String.format("Aqui tiene sus %.2f â‚¬", devolucion));
+ 			a.showAndWait();
  		} catch (CambioInsuficienteException e) {
 				Alert a = new Alert(AlertType.ERROR);
 				a.setTitle("Error");
@@ -205,13 +218,14 @@ public class ExpendedoraController implements Initializable {
 			a.setContentText("Elija otro producto");
 			a.showAndWait();
  		}
+
  	    actualizarFormulario();
     }
     
     public void actualizarFormulario() {
-    	txtCredito.setText(String.valueOf(e.getCredito()) + " €");
-    	txtCambio.setText(String.valueOf(e.getCambioDisponible()) + " €");
-    	txtVenta.setText(String.valueOf(e.getImporteVentas()) + " €");
+    	txtCredito.setText(String.valueOf(e.getCredito()) + " â‚¬");
+    	txtCambio.setText(String.valueOf(e.getCambioDisponible()) + " â‚¬");
+    	txtVenta.setText(String.valueOf(e.getImporteVentas()) + " â‚¬");
     	
     	cantidad00.setText(String.valueOf(e.getStock(0)));
     	cantidad10.setText(String.valueOf(e.getStock(1)));

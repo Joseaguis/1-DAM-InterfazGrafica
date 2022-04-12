@@ -40,9 +40,7 @@ public class Expendedora {
 	}
 	
 	public void anyadirDinero(double importe) {
-		importe = importe * 100;
-		importe = Math.round(importe);
-		importe = importe / 100;
+		importe = Math.round(importe * 100.0) / 100.0;
 		
 		if (this.credito + importe <= CREDITOMAXIMO) {
 			this.credito += importe;
@@ -50,7 +48,7 @@ public class Expendedora {
 	}
 	
 	public double devolverCredito() {
-		double creditoDevolver = this.credito;
+		double creditoDevolver = Math.round(this.credito * 100.0) / 100.0;
 		this.credito = 0;
 		return creditoDevolver;
 	}
@@ -66,8 +64,8 @@ public class Expendedora {
 		
 		double cambio = this.credito - precio;
 		
-		this.importeVentas += precio;
-		this.cambioDisponible -= cambio;
+		this.importeVentas += Math.round(precio * 100.0) / 100.0;
+		this.cambioDisponible -= Math.round(cambio * 100.0) / 100.0;
 		this.credito = 0;
 		
 		return cambio;
@@ -75,13 +73,13 @@ public class Expendedora {
 	}
 	
 	public double getCredito() {
-		return credito;
+		return Math.round(credito * 100.0) / 100.0;
 	}
 	public double getCambioDisponible() {
-		return cambioDisponible;
+		return Math.round(cambioDisponible * 100.0) / 100.0;
 	}
 	public double getImporteVentas() {
-		return importeVentas;
+		return Math.round(importeVentas * 100.0) / 100.0;
 	}
 	
 	public int getNumeroProductos() {

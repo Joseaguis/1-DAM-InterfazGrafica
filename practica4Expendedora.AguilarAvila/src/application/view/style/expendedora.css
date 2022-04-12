@@ -1,11 +1,12 @@
 #Scene{
     -fx-background-image: url(../../assets/imagenes/Expendedora.png);
     -fx-background-repeat: no-repeat;
+    -fx-background-size: auto auto;
 }
 
 #Controles{
     -fx-background-image: url(../../assets/imagenes/Derecha.png);
-    -fx-background-position: center;
+    -fx-background-position: right;
     -fx-background-repeat: no-repeat;
 }
 
@@ -21,6 +22,5 @@
 
 .hueco{
     -fx-alignment: Center;
-    -fx-border-color: red;
 }
 
