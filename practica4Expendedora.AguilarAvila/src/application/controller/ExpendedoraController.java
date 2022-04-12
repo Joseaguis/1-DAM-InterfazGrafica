@@ -183,7 +183,7 @@ public class ExpendedoraController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	String[] nombreProd = {"Coca Cola", "Fanta", "Pepsi", "Fanta", "Nestea", "Aquarius"	};
+    	String[] nombreProd = {"Coca Cola", "Fanta Limon", "Pepsi", "Fanta Naranja", "Nestea", "Aquarius"	};
     	double[] precioProd = {1.,1.10,1.20,0.90,0.95,1.05};
     	int[] stockProd = {5,6,7,8,2,1};
     	e = new Expendedora(10,nombreProd , precioProd, stockProd);
